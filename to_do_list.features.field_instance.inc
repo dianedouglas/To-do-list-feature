@@ -10,9 +10,50 @@
 function to_do_list_field_default_field_instances() {
   $field_instances = array();
 
+  // Exported field_instance: 'node-todo_task-field_details'
+  $field_instances['node-todo_task-field_details'] = array(
+    'bundle' => 'todo_task',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 4,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_details',
+    'label' => 'Details',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 4,
+    ),
+  );
+
   // Exported field_instance: 'node-todo_task-field_due_date'
   $field_instances['node-todo_task-field_due_date'] = array(
     'bundle' => 'todo_task',
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => 'Please enter the date this task should be completed.',
     'display' => array(
@@ -61,8 +102,49 @@ function to_do_list_field_default_field_instances() {
         'text_parts' => array(),
         'year_range' => '-3:+3',
       ),
-      'type' => 'date_popup',
+      'type' => 'date_select',
       'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'node-todo_task-field_priority'
+  $field_instances['node-todo_task-field_priority'] = array(
+    'bundle' => 'todo_task',
+    'default_value' => array(
+      0 => array(
+        'value' => 'normal ',
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 3,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_priority',
+    'label' => 'Priority',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 3,
     ),
   );
 
@@ -109,9 +191,11 @@ function to_do_list_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Details');
   t('Due date');
   t('Has this task been started yet or not?');
   t('Please enter the date this task should be completed.');
+  t('Priority');
   t('Status');
 
   return $field_instances;
